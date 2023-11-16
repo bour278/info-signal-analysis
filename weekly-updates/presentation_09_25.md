@@ -11,14 +11,14 @@ backgroundColor: #fae9c5
 
 ### Done Last Week
 
-- Collecting data sources for both news and equity ohlc
-- Adding code for DDTW, clustering, and visualization
+- Adding some metrics for number of clusters
+- Adding code for co-occurence network of graph
+- Adjusting graph visualizations
 
 ### Next Week Plans
 
-- Formalizing metrics and criteria for clustering
-- Conducting more EDA
-- Trying more variants of DTW
+- Start working on Kalmann like approach to explot the graph structure
+- try DDTW by considering time intervals relevent to a news article
 ---
 
 # **Enhancing Equity Predictions Using Informational Signals**
@@ -126,7 +126,20 @@ img[alt~="center"] {
 - **DDTW:** algorithm finding shortest path distance between 2 time series using dynamic programming approach
 - **Graph Representation** Adjacency matrix is built from pairwise DDTW distances between each pairs of equities
 
+---
 
+# **Methodology - DDTW Metrics**
+
+- **k-means optimal number of clusters:** For this case we used the _silhouette score method_ to computer the optimal number _k_ of clusters. The best _k_ was achieved at _k=2_.
+- **inter-variance of numner of the graph** Metric to determine how efficient the clustering method computed by $\frac{\sum_{i}^{K}n_{i}||c_{i}-\bar{x}||^{2}}{K}$ where $c_{i}$ represent the centroid of the $i^{th}$ cluster and $\bar{x}$ is the global mean of the graph.
+
+
+---
+
+# **Methodology - News Co-occurence**
+
+- **News co-occurence matrix:** Matrix $A$ where $A_{i,j}$ corresponds to the number of news articles where stock $i$ appeared with stock $j$.
+- **Louvain Cluseting** Community detection algorithm that helps retrieve clusters in a graph and does not require setting the optimal number of clusters before running the algoirthm.
 ---
 
 # **Results - Log Close Graph Cluster**
@@ -138,7 +151,8 @@ img[alt~="center"] {
 }
 </style>
 
-![w:640 center](images/clustering.jpeg "Savitzky Golay application to GOOGL log close values")
+![w:640 center](images/ddtw-clustering.jpeg "Savitzky Golay application to GOOGL log close values")
+[rendered html fo the graph](https://jsfiddle.net/9pwnjrtL/)
 
 ---
 
@@ -212,6 +226,19 @@ img[alt~="center"] {
 </style>
 
 ![w:640 center](images/cluster_5.png)
+
+---
+# **Results - Co-occurence Network**
+
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
+![w:640 center](images/occurence-network.jpeg)
+[rendered html for the graph](https://jsfiddle.net/28pqtdaj/)
 
 ---
 
