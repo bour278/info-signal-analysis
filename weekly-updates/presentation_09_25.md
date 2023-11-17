@@ -183,6 +183,20 @@ img[alt~="center"] {
 }
 </style>
 
+![w:640 center](https://i.ibb.co/PCT2hhB/Web-capture-17-11-2023-122457.jpg)
+[rendered HTML for the graph](https://jsfiddle.net/9pwnjrtL/)
+
+---
+
+# **Results - Log Close Graph Cluster**
+
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
 ![w:640 center](images/ddtw-clustering.jpeg "Savitzky Golay application to GOOGL log close values")
 [rendered HTML for the graph](https://jsfiddle.net/9pwnjrtL/)
 
