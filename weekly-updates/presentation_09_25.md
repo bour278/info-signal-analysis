@@ -5,27 +5,6 @@ paginate: true
 marp: true
 backgroundColor: #fae9c5
 ---
----
-
-# **Updates Since Last Week**
-
-### Done Last Week
-
-- Adding some metrics for the number of clusters
-- Adding code for co-occurrence network of graph
-- Adjusting graph visualizations
-
-### Next Week Plans
-
-- Start working on the Kalmann approach to exploit the graph structure
-- try DDTW by considering time intervals relevant to a news article
----
-
-# **Enhancing Equity Predictions Using Informational Signals**
-
-<br>
-<br>
-
 #### **Group Members:** Bella Macaluso - Elizabeth Yang - Sourav Vemulapalli - Aditiya Palliyil - Joseph Jabbour
 #### **Githup repo:** https://github.com/bour278/info-signal-analysis
 ---
@@ -156,14 +135,14 @@ img[alt~="center"] {
 # **Methodology - DDTW Clustering**
 
 - **DDTW:** algorithm finding shortest path distance between 2 time series using dynamic programming approach
-- **Graph Representation** Adjacency matrix is built from pairwise DDTW distances between each pair of equities
+- **Graph Representation:** Adjacency matrix is built from pairwise DDTW distances between each pair of equities
 
 ---
 
 # **Methodology - DDTW Metrics**
 
-- **k-means optimal number of clusters:** For this case, we used the _silhouette score method_ to computer the optimal number _k_ of clusters. The best _k_ was achieved at _k=2_.
-- **inter-variance of numner of the graph** Metric to determine how efficient the clustering method computed by $\frac{\sum_{i}^{K}n_{i}||c_{i}-\bar{x}||^{2}}{K}$ where $c_{i}$ represent the centroid of the $i^{th}$ cluster and $\bar{x}$ is the global mean of the graph.
+- **k-means optimal number of clusters:** For this case, we used the _silhouette score method_ to compute the optimal number _k_ of clusters. The best _k_ was achieved at _k=2_.
+- **inter-variance of the graph:** Metric to determine how efficient the clustering method computed by $\frac{\sum_{i}^{K}n_{i}||c_{i}-\bar{x}||^{2}}{K}$ where $c_{i}$ represent the centroid of the $i^{th}$ cluster and $\bar{x}$ is the global mean of the graph.
 
 
 ---
@@ -171,9 +150,33 @@ img[alt~="center"] {
 # **Methodology - News Co-occurrence**
 
 - **News co-occurence matrix:** Matrix $A$ where $A_{i,j}$ corresponds to the number of news articles where stock $i$ appeared with stock $j$.
-- **Louvain Clustering** Community detection algorithm that helps retrieve clusters in a graph and does not require setting the optimal number of clusters before running the algorithm.
+- **Louvain Clustering:** Community detection algorithm that helps retrieve clusters in a graph and does not require setting the optimal number of clusters before running the algorithm.
 ---
 
+# **Results - Metrics - Silhouette Score**
+
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
+![w:640 center](https://i.ibb.co/7NXCqQp/Web-capture-5-12-2023-03618-localhost.jpg)
+
+---
+# **Results - Metrics - Inter-Cluster Variance**
+
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
+![w:640 center](https://i.ibb.co/0sZL5L0/Web-capture-5-12-2023-03735-localhost.jpg)
+
+---
 # **Results - Log Close Graph Cluster**
 
 <style>
@@ -183,7 +186,7 @@ img[alt~="center"] {
 }
 </style>
 
-![w:640 center](https://i.ibb.co/PCT2hhB/Web-capture-17-11-2023-122457.jpg)
+![w:640 center](https://i.ibb.co/NrWZQ0g/Web-capture-5-12-2023-0346.jpg)
 [rendered HTML for the graph](https://jsfiddle.net/9pwnjrtL/)
 
 ---
